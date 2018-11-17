@@ -4,3 +4,11 @@ img.card-img-top:hover {
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
+
+div#map {
+  padding-bottom: 1rem;
+}
+
+.contact-header {
+  font-variant: small-caps;
+}
