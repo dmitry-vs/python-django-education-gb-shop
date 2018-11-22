@@ -1,84 +1,53 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="/static/img/favicon.ico">
+{% extends 'mainapp/base.html' %}
 
-    <title>Контакты</title>
+{% block title %}
+  Контакты
+{% endblock title %}
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+{% block menu %}
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-center">
+        <ul class="navbar-nav">
+          <li class="navitem"><a class="nav-link" href="/">Главная</a></li>
+          <li class="navitem"><a class="nav-link" href="/products/">Продукция</a></li>
+          <li class="navitem"><a class="nav-link active" href="/contact/">Контакты</a></li>  
+        </ul>
+    </nav>
+  </header>
+{% endblock menu %}
 
-    <!-- Bootstrap styles -->
-    <link rel="stylesheet" href="/static/css/bootstrap/album.css">
+{% block heading %}
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Контакты</h1>
+      <p class="lead text-muted">Связаться с нами</p>
+    </div>
+  </section>
+{% endblock heading %}
 
-    <!-- Custom styles -->
-    <link rel="stylesheet" href="/static/css/style.css">
-  </head>
-
-  <body>
-
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-center">
-          <ul class="navbar-nav">
-            <li class="navitem"><a class="nav-link" href="/">Главная</a></li>
-            <li class="navitem"><a class="nav-link" href="/products/">Продукция</a></li>
-            <li class="navitem"><a class="nav-link active" href="/contact/">Контакты</a></li>  
+{% block content %}
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 text-right">
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-light"><span class="float-left contact-header"><strong>Адрес</strong></span>Москва, ул. Барклая, 11</li>
+            <li class="list-group-item list-group-item-success"><span class="float-left contact-header"><strong>Телефон</strong></span>8 (495) 123-45-67</li>
+            <li class="list-group-item list-group-item-light"><span class="float-left contact-header"><strong>Почта</strong></span><a href="mailto:egallery@mail.egallery.ru">egallery@mail.egallery.ru</a></li>
+            <li class="list-group-item list-group-item-success"><span class="float-left contact-header"><strong>Доставка</strong></span>Все города России</li>
           </ul>
-      </nav>
-    </header>
-
-    <main role="main">
-      <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">Контакты</h1>
-          <p class="lead text-muted">Связаться с нами</p>
         </div>
-      </section>
-
-      <div class="album py-5 bg-light">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6 text-right">
-              <ul class="list-group">
-                <li class="list-group-item list-group-item-light"><span class="float-left contact-header"><strong>Адрес</strong></span>Москва, ул. Барклая, 11</li>
-                <li class="list-group-item list-group-item-success"><span class="float-left contact-header"><strong>Телефон</strong></span>8 (495) 123-45-67</li>
-                <li class="list-group-item list-group-item-light"><span class="float-left contact-header"><strong>Почта</strong></span><a href="mailto:egallery@mail.egallery.ru">egallery@mail.egallery.ru</a></li>
-                <li class="list-group-item list-group-item-success"><span class="float-left contact-header"><strong>Доставка</strong></span>Все города России</li>
-              </ul>
-            </div>
-            <div class="col-md-3"></div>
-          </div>
-
-          <br><hr><br>
-          
-          <div class="row">
-            <div class="col-md-12">
-              <img src="/static/img/contact/map.png" alt="Map" class="img-fluid">
-            </div>
-          </div><!--row-->
-        </div><!--container-->
-      </div><!--album-->
-
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-        <span class="float-right"><a href="#">Наверх</a></span>
-        <span>EGallery &copy; 2018</span>
+        <div class="col-md-3"></div>
       </div>
-    </footer>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.min.js"></script>
-  </body>
-</html>
+      <br><hr><br>
+      
+      <div class="row">
+        <div class="col-md-12">
+          <img src="/static/img/contact/map.png" alt="Map" class="img-fluid">
+        </div>
+      </div><!--row-->
+    </div><!--container-->
+  </div><!--album-->
+{% endblock content %}
