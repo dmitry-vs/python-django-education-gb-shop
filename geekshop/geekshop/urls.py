@@ -18,9 +18,9 @@ from django.urls import path, re_path
 import mainapp.views as mainapp
 
 urlpatterns = [
-    re_path(r'^$', mainapp.index),
-    re_path(r'^products/$', mainapp.products),
-    re_path(r'^contact/$', mainapp.contact),
+    re_path(r'^$', mainapp.index, name='index'),
+    re_path(r'^products/$', mainapp.products, name='products'),
+    re_path(r'^contact/$', mainapp.contact, name='contact'),
 
     path('admin/', admin.site.urls),
 ]
