@@ -1,4 +1,6 @@
 from django.shortcuts import render
+import json
+import os
 
 # Create your views here.
 
@@ -7,6 +9,8 @@ MENU_ITEMS = {
   'products': 'Продукция',
   'contact': 'Контакты',
 }
+
+GOODS_FILE_NAME = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'static', 'json', 'products.json')
 
 def index(request):
   context = {
@@ -17,39 +21,9 @@ def index(request):
   return render(request, 'mainapp/index.html', context)
 
 def products(request):
-  goods = [
-    {
-      'name': 'Отдых на пляже',
-      'price': 5000,
-      'img_name': '1',
-    },
-    {
-      'name': 'Торжество жизни',
-      'price': 10000,
-      'img_name': '2',
-    },
-    {
-      'name': 'Прогулка на исходе дня',
-      'price': 15000,
-      'img_name': '3',
-    },
-    {
-      'name': 'Домик у моря',
-      'price': 5000,
-      'img_name': '4',
-    },
-    {
-      'name': 'Жизнь на воде',
-      'price': 10000,
-      'img_name': '5',
-    },
-    {
-      'name': 'Накануне шторма',
-      'price': 15000,
-      'img_name': '6',
-    },
-  ]
-  
+  with open(GOODS_FILE_NAME, 'r', encoding='utf-8') as f:
+    goods = json.load(f)
+
   context = {
     'title': 'продукция',
     'menu': MENU_ITEMS,
