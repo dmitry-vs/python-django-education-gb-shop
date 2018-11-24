@@ -2,13 +2,13 @@
   <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-center">
       <ul class="navbar-nav">
         <li class="navitem">
-          <a href="{% url 'index' %}" class="nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}">Главная</a>
+          <a href="{% url 'index' %}" class="nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}">{{ menu.index }}</a>
         </li>
         <li class="navitem">
-          <a href="{% url 'products' %}" class="nav-link {% if request.resolver_match.url_name == 'products' %}active{% endif %}">Продукция</a>
+          <a href="{% url 'products' %}" class="nav-link {% if request.resolver_match.url_name == 'products' %}active{% endif %}">{{ menu.products }}</a>
         </li>
         <li class="navitem">
-          <a href="{% url 'contact' %}" class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Контакты</a>
+          <a href="{% url 'contact' %}" class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">{{ menu.contact }}</a>
         </li>  
       </ul>
   </nav>

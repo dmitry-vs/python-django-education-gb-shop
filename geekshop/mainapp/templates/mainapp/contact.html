@@ -21,10 +21,10 @@
         <div class="col-md-3"></div>
         <div class="col-md-6 text-right">
           <ul class="list-group">
-            <li class="list-group-item list-group-item-light"><span class="float-left contact-header"><strong>Адрес</strong></span>Москва, ул. Барклая, 11</li>
-            <li class="list-group-item list-group-item-success"><span class="float-left contact-header"><strong>Телефон</strong></span>8 (495) 123-45-67</li>
-            <li class="list-group-item list-group-item-light"><span class="float-left contact-header"><strong>Почта</strong></span><a href="mailto:egallery@mail.egallery.ru">egallery@mail.egallery.ru</a></li>
-            <li class="list-group-item list-group-item-success"><span class="float-left contact-header"><strong>Доставка</strong></span>Все города России</li>
+            <li class="list-group-item list-group-item-light"><span class="float-left contact-header"><strong>{{ contacts.address.key }}</strong></span>{{ contacts.address.val }}</li>
+            <li class="list-group-item list-group-item-success"><span class="float-left contact-header"><strong>{{ contacts.phone.key }}</strong></span>{{ contacts.phone.val }}</li>
+            <li class="list-group-item list-group-item-light"><span class="float-left contact-header"><strong>{{ contacts.mail.key }}</strong></span><a href="mailto:{{ contacts.mail.val }}">egallery@mail.egallery.ru</a></li>
+            <li class="list-group-item list-group-item-success"><span class="float-left contact-header"><strong>{{ contacts.shipping.key }}</strong></span>{{ contacts.shipping.val }}</li>
           </ul>
         </div>
         <div class="col-md-3"></div>

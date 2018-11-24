@@ -19,77 +19,22 @@
     <div class="container">
       <div class="row">
 
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <a href="{% static 'img/products/big/1_big.jpg' %}" target="_blank" rel="noopener noreferrer"><img class="card-img-top" src="{% static 'img/products/small/1_small.jpg' %}" alt="Отдых на пляже"></a>
-            <div class="card-body">
-              <p class="card-text">Отдых на пляже</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <button type="button" class="btn btn-sm btn-outline-secondary">В корзину</button>
-                <small class="text-muted">5000 &#8381;</small>
+        {% for item in goods %}
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <a href="{% static 'img/products/big/'|add:item.img_name|add:'_big.jpg' %}" target="_blank" rel="noopener noreferrer">
+                <img class="card-img-top" src="{% static 'img/products/small/'|add:item.img_name|add:'_small.jpg' %}" alt="{{ item.name }}">
+              </a>
+              <div class="card-body">
+                <p class="card-text">{{ item.name }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">В корзину</button>
+                  <small class="text-muted">{{ item.price }} &#8381;</small>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <a href="{% static 'img/products/big/2_big.jpg' %}" target="_blank" rel="noopener noreferrer"><img class="card-img-top" src="{% static 'img/products/small/2_small.jpg' %}" alt="Торжество жизни"></a>
-            <div class="card-body">
-              <p class="card-text">Торжество жизни</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <button type="button" class="btn btn-sm btn-outline-secondary">В корзину</button>
-                <small class="text-muted">10000 &#8381;</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <a href="{% static 'img/products/big/3_big.jpg' %}" target="_blank" rel="noopener noreferrer"><img class="card-img-top" src="{% static 'img/products/small/3_small.jpg' %}" alt="Прогулка на исходе дня"></a>
-            <div class="card-body">Прогулка на исходе дня</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <button type="button" class="btn btn-sm btn-outline-secondary">В корзину</button>
-                <small class="text-muted">15000 &#8381;</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <a href="{% static 'img/products/big/4_big.jpg' %}" target="_blank" rel="noopener noreferrer"><img class="card-img-top" src="{% static 'img/products/small/4_small.jpg' %}" alt="Домик у моря"></a>
-            <div class="card-body">
-              <p class="card-text">Домик у моря</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <button type="button" class="btn btn-sm btn-outline-secondary">В корзину</button>
-                <small class="text-muted">5000 &#8381;</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <a href="{% static 'img/products/big/5_big.jpg' %}" target="_blank" rel="noopener noreferrer"><img class="card-img-top" src="{% static 'img/products/small/5_small.jpg' %}" alt="Жизнь на воде"></a>
-            <div class="card-body">
-              <p class="card-text">Жизнь на воде</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <button type="button" class="btn btn-sm btn-outline-secondary">В корзину</button>
-                <small class="text-muted">10000 &#8381;</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <a href="{% static 'img/products/big/6_big.jpg' %}" target="_blank" rel="noopener noreferrer"><img class="card-img-top" src="{% static 'img/products/small/6_small.jpg' %}" alt="Накануне шторма"></a>
-            <div class="card-body">Накануне шторма</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <button type="button" class="btn btn-sm btn-outline-secondary">В корзину</button>
-                <small class="text-muted">15000 &#8381;</small>
-              </div>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       
       </div><!--row-->
     </div><!--container-->
