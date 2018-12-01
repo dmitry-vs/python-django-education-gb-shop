@@ -22,11 +22,11 @@
         {% for item in goods %}
           <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-              <a href="{% static 'img/products/big/'|add:item.img_name|add:'_big.jpg' %}" target="_blank" rel="noopener noreferrer">
-                <img class="card-img-top" src="{% static 'img/products/small/'|add:item.img_name|add:'_small.jpg' %}" alt="{{ item.name }}">
+              <a href="/media/{{ item.image }}" target="_blank" rel="noopener noreferrer">
+                <img class="card-img-top" src="/media/{{ item.image }}" alt="{{ item.name|capfirst }}">
               </a>
               <div class="card-body">
-                <p class="card-text">{{ item.name }}</p>
+                <p class="card-text">{{ item.name|capfirst }}</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <button type="button" class="btn btn-sm btn-outline-secondary">В корзину</button>
                   <small class="text-muted">{{ item.price }} &#8381;</small>
