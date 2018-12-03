@@ -10,7 +10,17 @@
     <div class="container">
       <h1 class="jumbotron-heading">Продукция</h1>
       <p class="lead text-muted">Выбрать, изучить и приобрести понравившиеся электронные картины современных художников</p>
-    </div>
+      <nav class="navbar navbar-expand-md navbar-light bg-white justify-content-center">
+        <ul class="navbar-nav">
+          <li class="navitem">
+            <a class="nav-link initialism" href="#">Фотографии</a>
+          </li>
+          <li class="navitem">
+            <a class="nav-link initialism" href="#">Картины</a>
+          </li>
+        </ul>
+      </nav>
+    </div><!--container-->
   </section>
 {% endblock heading %}
 
@@ -18,7 +28,6 @@
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row">
-
         {% for item in goods %}
           <div class="col-md-4">
             <div class="card mb-4 box-shadow">
@@ -26,16 +35,19 @@
                 <img class="card-img-top" src="/media/{{ item.image }}" alt="{{ item.name|capfirst }}">
               </a>
               <div class="card-body">
-                <p class="card-text">{{ item.name|capfirst }}</p>
+                <div class="d-flex card-text justify-content-between align-items-center">
+                  <p>{{ item.name|capfirst }}</p>
+                  <p class="text-muted">{{ item.category.name|capfirst }}</p>
+                </div>
                 <div class="d-flex justify-content-between align-items-center">
                   <button type="button" class="btn btn-sm btn-outline-secondary">В корзину</button>
+                  <small>Наличие: {{ item.quantity }}</small>
                   <small class="text-muted">{{ item.price }} &#8381;</small>
                 </div>
               </div>
             </div>
           </div>
         {% endfor %}
-      
       </div><!--row-->
     </div><!--container-->
   </div><!--album-->
