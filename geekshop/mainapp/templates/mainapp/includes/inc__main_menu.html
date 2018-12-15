@@ -1,6 +1,6 @@
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-center">
-      <ul class="navbar-nav">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <ul class="navbar-nav abs-center-x">
         <li class="navitem">
           <a href="{% url 'index' %}" class="nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}">{{ menu.index }}</a>
         </li>
@@ -10,8 +10,9 @@
         <li class="navitem">
           <a href="{% url 'contact' %}" class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">{{ menu.contact }}</a>
         </li>
-
-        {% comment %} authentication {% endcomment %}
+      </ul>
+      
+      <ul class="navbar-nav ml-auto">
         {% if user.is_authenticated %}
           <li class="navitem">
             <a href="{#% url 'auth:edit' %#}" class="nav-link">{{ user.first_name|default:'Пользователь' }}</a>
@@ -24,7 +25,6 @@
             <a href="{% url 'auth:login' %}" class="nav-link">Войти</a>
           {% endif %}
         </li>
-        {% comment %} end authentication {% endcomment %}
       </ul>
   </nav>
 </header>

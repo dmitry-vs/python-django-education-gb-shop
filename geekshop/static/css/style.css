@@ -12,3 +12,9 @@ div#map {
 .contact-header {
   font-variant: small-caps;
 }
+
+.abs-center-x {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
