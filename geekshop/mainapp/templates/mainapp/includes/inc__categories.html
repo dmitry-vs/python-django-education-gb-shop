@@ -1,0 +1,12 @@
+<nav class="navbar navbar-expand-md navbar-light bg-white justify-content-center">
+  <ul class="navbar-nav">
+    <li class="navitem">
+      <a class="nav-link initialism" href="#">Все</a>
+    </li>
+    {% for item in categories %}
+      <li class="navitem">
+        <a class="nav-link initialism" href="#">{{ item.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

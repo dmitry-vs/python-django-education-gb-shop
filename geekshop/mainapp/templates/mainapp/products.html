@@ -10,25 +10,7 @@
     <div class="container">
       <h1 class="jumbotron-heading">Продукция</h1>
       <p class="lead text-muted">Выбрать, изучить и приобрести понравившиеся электронные картины современных художников</p>
-      <nav class="navbar navbar-expand-md navbar-light bg-white justify-content-center">
-        <ul class="navbar-nav">
-          <li class="navitem">
-            <a class="nav-link initialism" href="#">Все</a>
-          </li>
-          <li class="navitem">
-            <a class="nav-link initialism" href="#">Пейзаж</a>
-          </li>
-          <li class="navitem">
-            <a class="nav-link initialism" href="#">Рисунок</a>
-          </li>
-          <li class="navitem">
-            <a class="nav-link initialism" href="#">Люди</a>
-          </li>
-          <li class="navitem">
-            <a class="nav-link initialism" href="#">Техника</a>
-          </li>
-        </ul>
-      </nav>
+      {% include 'mainapp/includes/inc__categories.html' %}
     </div><!--container-->
   </section>
 {% endblock heading %}
@@ -37,7 +19,7 @@
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row">
-        {% for item in goods %}
+        {% for item in products %}
           <div class="col-md-4">
             <div class="card mb-4 box-shadow">
               <a href="/media/{{ item.image }}" target="_blank" rel="noopener noreferrer">
