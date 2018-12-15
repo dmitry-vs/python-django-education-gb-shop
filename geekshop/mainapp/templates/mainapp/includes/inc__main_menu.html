@@ -15,7 +15,7 @@
       <ul class="navbar-nav ml-auto">
         {% if user.is_authenticated %}
           <li class="navitem">
-            <a href="{#% url 'auth:edit' %#}" class="nav-link">{{ user.first_name|default:'Пользователь' }}</a>
+            <a href="{% url 'auth:edit' %}" class="nav-link">{{ user.first_name|default:'Пользователь' }}</a>
           </li>
         {% endif %}
         <li class="navitem">
