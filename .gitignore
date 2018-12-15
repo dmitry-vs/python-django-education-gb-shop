@@ -4,7 +4,6 @@ tmp/*
 *.pyc
 *.pyo
 geekshop/mainapp/migrations/*
-geekshop/mainapp/__pycache__/*
-geekshop/geekshop/__pycache__/*
+geekshop/authapp/migrations/*
 */__pycache__/*
 geekshop/media/*
