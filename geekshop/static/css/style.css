@@ -18,3 +18,11 @@ div#map {
   left: 50%;
   transform: translateX(-50%);
 }
+
+#id_avatar {
+  line-height: 1em;
+}
+
+input:required {
+  background: rgb(251, 253, 216);
+}
