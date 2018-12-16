@@ -1,11 +1,15 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white justify-content-center">
   <ul class="navbar-nav">
     <li class="navitem">
-      <a class="nav-link initialism" href="#">Все</a>
+      <a class="nav-link initialism {% if request.resolver_match.kwargs.category_pk == '0' %}active{% endif %}" href="{% url 'main:category' 0 %}">
+        Все
+      </a>
     </li>
     {% for item in categories %}
       <li class="navitem">
-        <a class="nav-link initialism" href="#">{{ item.name }}</a>
+        <a class="nav-link initialism {% if request.resolver_match.kwargs.category_pk|add:0 == item.pk %}active{% endif %}" href="{% url 'main:category' item.pk %}"> 
+          {{ item.name }}
+        </a>
       </li>
     {% endfor %}
   </ul>

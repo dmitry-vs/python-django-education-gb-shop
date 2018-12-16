@@ -3,7 +3,7 @@
       <ul class="navbar-nav abs-center-x">
         {% for key, val in menu.items %}
           <li class="navitem">
-            <a href="{% url key %}" class="nav-link {% if request.resolver_match.url_name == key %}active{% endif %}">{{ val }}</a>
+            <a href="{% url 'main:'|add:key %}" class="nav-link {% if request.resolver_match.url_name == key %}active{% endif %}">{{ val }}</a>
           </li>
         {% endfor %}
       </ul>

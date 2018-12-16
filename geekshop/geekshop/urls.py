@@ -21,10 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    re_path(r'^$', mainapp.index, name='index'),
-    re_path(r'^products/$', mainapp.products, name='products'),
-    re_path(r'^contact/$', mainapp.contact, name='contact'),
-
+    re_path(r'^', include('mainapp.urls', namespace='main')),
     re_path(r'^auth/', include('authapp.urls', namespace='auth')),
 
     path('admin/', admin.site.urls),
