@@ -15,7 +15,7 @@ def login(request):
             user = auth.authenticate(username=username, password=password)
             if user and user.is_active:
                 auth.login(request, user)
-                return HttpResponseRedirect(reverse('index'))
+                return HttpResponseRedirect(reverse('main:index'))
     else:
         form = ShopUserLoginForm()
 
@@ -28,7 +28,7 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('main:index'))
 
 
 def register(request):
@@ -54,7 +54,7 @@ def edit(request):
         form = ShopUserEditForm(request.POST, request.FILES, instance=request.user)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('index'))
+            return HttpResponseRedirect(reverse('main:index'))
     else:
         form = ShopUserEditForm(instance=request.user)
     
