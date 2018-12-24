@@ -1,10 +1,18 @@
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
 from basketapp.models import Basket
 from mainapp.models import Product
+from mainapp.views import get_basket
 
 
-def basket_view(request):
-    pass
+def index(request):
+    basket_items = request.user.basket_set.all()
+    context = {
+        'title': 'корзина',
+        'basket_items': basket_items,
+        'basket': get_basket(request),
+    }
+    
+    return render(request, 'basketapp/basket.html', context)
 
 
 def add(request, pk):
@@ -22,5 +30,6 @@ def add(request, pk):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
-def remove(request):
-    pass
+def remove(request, pk):
+    get_object_or_404(Basket, pk=pk, user=request.user).delete()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
