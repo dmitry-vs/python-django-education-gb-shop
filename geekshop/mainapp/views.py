@@ -49,23 +49,35 @@ def products(request, category_pk=None):
     return render(request, 'mainapp/products.html', context)
 
 
+def product(request, product_pk):
+    product = get_object_or_404(Product, pk=product_pk)
+    context = {
+        'title': product.name,
+        'menu': MENU_ITEMS,
+        'product': product,
+        'basket': get_basket(request),
+    }
+
+    return render(request, 'mainapp/product.html', context)
+
+
 def contact(request):
     contacts = {
         'address': {
-        'key': 'Адрес',
-        'val': 'Москва, ул. Барклая, 11',
+            'key': 'Адрес',
+            'val': 'Москва, ул. Барклая, 11',
         },
         'phone': {
-        'key': 'Телефон',
-        'val': '8 (495) 123-45-67'
+            'key': 'Телефон',
+            'val': '8 (495) 123-45-67'
         },
         'mail': {
-        'key': 'Почта',
-        'val': 'egallery@mail.egallery.ru',
+            'key': 'Почта',
+            'val': 'egallery@mail.egallery.ru',
         },
         'shipping': {
-        'key': 'Доставка',
-        'val': 'Все города России',
+            'key': 'Доставка',
+            'val': 'Все города России',
         },
     }
 
