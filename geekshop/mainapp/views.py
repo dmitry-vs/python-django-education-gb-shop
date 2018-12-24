@@ -9,10 +9,15 @@ MENU_ITEMS = {
 }
 
 
+def get_basket(request):
+    return request.user.basket_set.all() if request.user.is_authenticated else []
+
+
 def index(request):
     context = {
         'title': 'главная',
         'menu': MENU_ITEMS,
+        'basket': get_basket(request),
     }
     
     return render(request, 'mainapp/index.html', context)
@@ -27,6 +32,7 @@ def products(request, category_pk=None):
         'menu': MENU_ITEMS,
         'products': products,
         'categories': categories,
+        'basket': get_basket(request),
     }
 
     if category_pk:
@@ -67,6 +73,7 @@ def contact(request):
         'title': 'контакты',
         'menu': MENU_ITEMS,
         'contacts': contacts,
+        'basket': get_basket(request),
     }
     
     return render(request, 'mainapp/contact.html', context)

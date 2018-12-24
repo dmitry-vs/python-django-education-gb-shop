@@ -8,7 +8,7 @@
         {% endfor %}
       </ul>
       
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav mr-auto">
         {% if user.is_authenticated %}
           <li class="navitem">
             <a href="{% url 'auth:edit' %}" class="nav-link">{{ user.first_name|default:'Пользователь' }}</a>
@@ -21,6 +21,14 @@
             <a href="{% url 'auth:login' %}" class="nav-link">Войти</a>
           {% endif %}
         </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+        {% if basket %}
+          <li class="navitem">
+            <a href="{#% url 'basket:view' %#}" class="nav-link">Товаров: {{ basket|length }}</a>
+          </li>
+        {% endif %}
       </ul>
   </nav>
 </header>
