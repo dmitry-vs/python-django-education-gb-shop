@@ -26,7 +26,9 @@
       <ul class="navbar-nav ml-auto">
         {% if basket %}
           <li class="navitem">
-            <a href="{#% url 'basket:view' %#}" class="nav-link">Товаров: {{ basket|length }}</a>
+            <a href="{#% url 'basket:view' %#}" class="nav-link">
+              Товаров: {{ basket.0.total_quantity }} | Сумма: {{ basket.0.total_cost|floatformat:0 }}
+            </a>
           </li>
         {% endif %}
       </ul>

@@ -3,7 +3,7 @@ from basketapp.models import Basket
 from mainapp.models import Product
 
 
-def basket(request):
+def basket_view(request):
     pass
 
 
