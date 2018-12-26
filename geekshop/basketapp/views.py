@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+from django.template.loader import render_to_string
+from django.http import JsonResponse
 from basketapp.models import Basket
 from mainapp.models import Product
 from mainapp.views import get_basket
@@ -12,7 +14,6 @@ def index(request):
     context = {
         'title': 'корзина',
         'basket_items': basket_items,
-        'basket': get_basket(request),
     }
     
     return render(request, 'basketapp/basket.html', context)
@@ -42,3 +43,28 @@ def add(request, pk):
 def remove(request, pk):
     get_object_or_404(Basket, pk=pk, user=request.user).delete()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+@login_required
+def update(request, pk, quantity):
+    if request.is_ajax():
+        quantity = int(quantity)
+        new_basket_item = Basket.objects.filter(pk=int(pk)).first()
+
+        if quantity > 0:
+            new_basket_item.quantity = quantity
+            new_basket_item.save()
+        else:
+            new_basket_item.delete()
+        
+        basket_items = request.user.basket_set.all()
+
+        context = {
+            'basket_items': basket_items,
+        }
+
+        result = render_to_string('basketapp/includes/inc__basket_list.html', context)
+
+        return JsonResponse({
+            'result': result,
+        })
