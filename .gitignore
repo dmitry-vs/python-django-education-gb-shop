@@ -6,5 +6,6 @@ tmp/*
 geekshop/mainapp/migrations/*
 geekshop/authapp/migrations/*
 geekshop/basketapp/migrations/*
+geekshop/adminapp/migrations/*
 */__pycache__/*
 geekshop/media/*
