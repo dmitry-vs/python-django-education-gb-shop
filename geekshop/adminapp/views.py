@@ -3,7 +3,7 @@ from django.urls import reverse
 from authapp.models import ShopUser
 from django.contrib.auth.decorators import user_passes_test
 from mainapp.models import Product, ProductCategory
-from adminapp.forms import ShopUserRegisterAdminForm, ShopUserEditAdminForm
+from adminapp.forms import ShopUserRegisterAdminForm, ShopUserEditAdminForm, CategoryEditAdminForm
 
 
 @user_passes_test(lambda x: x.is_superuser)
@@ -71,6 +71,47 @@ def categories(request):
     }
 
     return render(request, 'adminapp/categories.html', context)
+
+
+@user_passes_test(lambda x: x.is_superuser)
+def category_create(request):
+    title = 'Категории | Создание'
+
+    if request.method == 'POST':
+        category_form = CategoryEditAdminForm(request.POST, request.FILES)
+        if category_form.is_valid():
+            category_form.save()
+            return HttpResponseRedirect(reverse('admin:categories'))
+    else:
+        category_form = CategoryEditAdminForm()
+    
+    context = {
+        'title': title,
+        'form': category_form,
+    }
+
+    return render(request, 'adminapp/category_update.html', context)
+
+
+@user_passes_test(lambda x: x.is_superuser)
+def category_update(request, category_pk):
+    title = 'Категории | Редактирование'
+    category = get_object_or_404(ProductCategory, pk=category_pk)
+
+    if request.method == 'POST':
+        category_form = CategoryEditAdminForm(request.POST, request.FILES, instance=category)
+        if category_form.is_valid():
+            category_form.save()
+            return HttpResponseRedirect(reverse('admin:categories'))
+    else:
+        category_form = CategoryEditAdminForm(instance=category)
+    
+    context = {
+        'title': title,
+        'form': category_form,
+    }
+
+    return render(request, 'adminapp/category_update.html', context)
 
 
 @user_passes_test(lambda x: x.is_superuser)

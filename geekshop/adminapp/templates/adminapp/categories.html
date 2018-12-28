@@ -10,7 +10,7 @@
           <br>
           <div class="users-list">
             <div class="text-center">
-              <a href="{#% url 'admin:category_create' %#}">
+              <a href="{% url 'admin:category_create' %}">
                 <button class="btn btn-success">Новая категория</button>
               </a>
             </div>
@@ -34,7 +34,7 @@
                       </a>
                     </td>
                     <td>
-                      <a href="{#% url 'admin:category_update' object.pk %#}">
+                      <a href="{% url 'admin:category_update' object.pk %}">
                         <button class="btn btn-warning">Редактировать</button>
                       </a>
                     </td>
