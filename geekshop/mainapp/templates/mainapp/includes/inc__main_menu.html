@@ -13,6 +13,11 @@
           <li class="navitem">
             <a href="{% url 'auth:edit' %}" class="nav-link">{{ user.first_name|default:'Пользователь' }}</a>
           </li>
+          {% if user.is_superuser %}
+            <li class="navitem">
+              <a href="{% url 'admin:index' %}" class="nav-link">Админка</a>
+            </li>
+          {% endif %}
         {% endif %}
         <li class="navitem">
           {% if user.is_authenticated %}

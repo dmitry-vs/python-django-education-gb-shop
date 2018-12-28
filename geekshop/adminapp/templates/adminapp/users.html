@@ -10,7 +10,7 @@
           <br>
           <div class="users-list">
             <div class="text-center">
-              <a href="{#% url 'admin:user_create' %#}">
+              <a href="{% url 'admin:user_create' %}">
                 <button class="btn btn-success">Новый пользователь</button>
               </a>
             </div>
@@ -44,7 +44,7 @@
                     <td>{{ user.email }}</td>
                     <td>{{ object.last_login }}</td>
                     <td>
-                      <a href="{#% url 'admin:user_update' object.pk %#}">
+                      <a href="{% url 'admin:user_update' object.pk %}">
                         <button class="btn btn-warning">Редактировать</button>
                       </a>
                     </td>

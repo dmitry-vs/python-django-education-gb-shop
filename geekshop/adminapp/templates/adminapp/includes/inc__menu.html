@@ -13,8 +13,8 @@
         </li>
         <li class="navitem">
           <a href="{% url 'admin:categories' %}" 
-            class="nav-link {% if request.resolver_match.url_name == 'categories' or category.name %}active{% endif %}">
-            Категории{% if category %}: {{ category.name|capfirst }}{% endif %}
+            class="nav-link {% if request.resolver_match.url_name == 'categories' or objects.0.category.name %}active{% endif %}">
+            Категории{% if objects.0.category %}: {{ objects.0.category.name|capfirst }}{% endif %}
           </a>  
         </li>
       </ul>
