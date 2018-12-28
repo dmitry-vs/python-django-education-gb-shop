@@ -3,7 +3,7 @@ from django.urls import reverse
 from authapp.models import ShopUser
 from django.contrib.auth.decorators import user_passes_test
 from mainapp.models import Product, ProductCategory
-from adminapp.forms import ShopUserRegisterAdminForm, ShopUserEditAdminForm, CategoryEditAdminForm
+from adminapp.forms import ShopUserRegisterAdminForm, ShopUserEditAdminForm, CategoryEditAdminForm, ProductEditAdminForm
 
 
 @user_passes_test(lambda x: x.is_superuser)
@@ -122,6 +122,48 @@ def products(request, category_pk):
     context = {
         'title': title,
         'objects': products_list,
+        'category_pk': category_pk,
     }
 
     return render(request, 'adminapp/products.html', context)
+
+
+@user_passes_test(lambda x: x.is_superuser)
+def product_create(request):
+    title = 'Продукты | Создание'
+
+    if request.method == 'POST':
+        product_form = ProductEditAdminForm(request.POST, request.FILES)
+        if product_form.is_valid():
+            product_form.save()
+            return HttpResponseRedirect(reverse('admin:categories'))
+    else:
+        product_form = ProductEditAdminForm()
+    
+    context = {
+        'title': title,
+        'form': product_form,
+    }
+
+    return render(request, 'adminapp/product_update.html', context)
+
+
+@user_passes_test(lambda x: x.is_superuser)
+def product_update(request, product_pk):
+    title = 'Продукты | Редактирование'
+    product = get_object_or_404(Product, pk=product_pk)
+
+    if request.method == 'POST':
+        product_form = ProductEditAdminForm(request.POST, request.FILES, instance=product)
+        if product_form.is_valid():
+            product_form.save()
+            return HttpResponseRedirect(reverse('admin:categories'))
+    else:
+        product_form = ProductEditAdminForm(instance=product)
+    
+    context = {
+        'title': title,
+        'form': product_form,
+    }
+
+    return render(request, 'adminapp/product_update.html', context)

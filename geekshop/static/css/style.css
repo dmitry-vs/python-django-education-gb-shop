@@ -19,7 +19,7 @@ div#map {
   transform: translateX(-50%);
 }
 
-#id_avatar {
+#id_avatar, #id_image {
   line-height: 1em;
 }
 

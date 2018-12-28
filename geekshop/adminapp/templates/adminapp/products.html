@@ -10,7 +10,7 @@
           <br>
           <div class="users-list">
             <div class="text-center">
-              <a href="{#% url 'admin:product_create' category.pk %#}">
+              <a href="{% url 'admin:product_create' %}">
                 <button class="btn btn-success">Новый продукт</button>
               </a>
             </div>
@@ -39,12 +39,12 @@
                     <td>{{ object.stock }}</td>
                     <td>{{ object.short_description|capfirst }}</td>
                     <td>
-                      <a href="{#% url 'admin:product_read' object.pk %#}">
+                      <a href="{% url 'main:product' object.pk %}">
                         <button class="btn btn-primary">Подробнее</button>
                       </a>
                     </td>
                     <td>
-                      <a href="{#% url 'admin:product_update' object.pk %#}">
+                      <a href="{% url 'admin:product_update' object.pk %}">
                         <button class="btn btn-warning">Редактировать</button>
                       </a>
                     </td>
